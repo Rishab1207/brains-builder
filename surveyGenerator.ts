@@ -6,7 +6,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config();
 
-export const generateSurvey = async (userQuery: string): Promise<any> => {
+const generateSurvey = async (userQuery: string): Promise<any> => {
 	try {
 		/**
 		 * The OpenAI model variable is imported from langchain for text completion purposes.
@@ -57,3 +57,11 @@ export const generateSurvey = async (userQuery: string): Promise<any> => {
 		return error;
 	}
 };
+
+generateSurvey("internet usage")
+	.then((data) => {
+		console.log({ data });
+	})
+	.catch((error) => {
+		console.log({ error: error.message });
+	});
